@@ -27,10 +27,10 @@ def train_model(X_train, y_train, n_estimators=100, max_depth=None):
 
 def evaluate_model(model, X_test, y_test):
     predictions = model.predict(X_test)
+    print(classification_report(y_test, predictions))
     acc = accuracy_score(y_test, predictions)
     report = classification_report(y_test, predictions)
     return acc, report
-
 
 def main():
     X_train, X_test, y_train, y_test = load_data()
